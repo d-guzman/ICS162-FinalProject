@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressurePlateSwitch : MonoBehaviour
+public class BallSwitch : MonoBehaviour
 {
     [Tooltip("The game object that has a component that inherits from SwitchInteractable.")]
     public GameObject interactableObject;
     private SwitchInteractable interactable;
-    
+
     [SerializeField]
     private Collider trigger; // may change later depending on actual model implementation!!!!
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +25,14 @@ public class PressurePlateSwitch : MonoBehaviour
         
     }
 
+    // Activates Interactable object when something enters its trigger with the right tag
     private void OnTriggerEnter(Collider collider) {
-        interactable.OnSwitchActivate();
+        if (collider.gameObject.tag.Equals("Special object"))  // NOTE: the "Special object" tag should be attached to any ball that is used to activate a switch
+            interactable.OnSwitchActivate();
     }
 
     private void OnTriggerExit(Collider collider) {
-        interactable.OnSwitchDeactivate();
+        if (collider.gameObject.tag.Equals("Special object"))
+            interactable.OnSwitchDeactivate();
     }
 }
