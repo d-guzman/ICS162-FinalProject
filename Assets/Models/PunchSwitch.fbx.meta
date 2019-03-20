@@ -1,25 +1,27 @@
 fileFormatVersion: 2
-guid: fc7ace8b8b2f4604494205a53fa4c635
+guid: 18a001175bfe151438f88154fdd29f36
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube1
-    100004: pCube2
-    100006: pSphere1
-    100008: transform1
-    100010: transform2
+    100002: SwitchBase
+    100004: SwitchCore
+    100006: SwitchGlass
     400000: //RootNode
-    400002: pCube1
-    400004: pCube2
-    400006: pSphere1
-    400008: transform1
-    400010: transform2
-    2100000: lambert1
-    2300000: pCube2
-    3300000: pCube2
-    4300000: pCube2
-    2186277476908879412: ImportLogs
+    400002: SwitchBase
+    400004: SwitchCore
+    400006: SwitchGlass
+    2100000: No Name
+    2100002: Material
+    2300000: SwitchBase
+    2300002: SwitchCore
+    2300004: SwitchGlass
+    3300000: SwitchBase
+    3300002: SwitchCore
+    3300004: SwitchGlass
+    4300000: SwitchCore
+    4300002: SwitchBase
+    4300004: SwitchGlass
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -51,7 +53,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.45
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
