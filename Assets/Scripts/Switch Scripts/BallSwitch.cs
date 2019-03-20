@@ -27,11 +27,20 @@ public class BallSwitch : MonoBehaviour
 
     // Activates Interactable object when something enters its trigger with the right tag
     private void OnTriggerEnter(Collider collider) {
-        if (collider.gameObject.tag.Equals("Special object"))  // NOTE: the "Special object" tag should be attached to any ball that is used to activate a switch
+        Debug.Log(gameObject.name + " trigger was entered.");
+        if (collider.gameObject.tag.Equals("Special object")) {  // NOTE: the "Special object" tag should be attached to any ball that is used to activate a switch
             interactable.OnSwitchActivate();
+        }
+    }
+
+    private void OnTriggerStay(Collider other) {
+        if (other.gameObject.tag.Equals("Special object")) {  // NOTE: the "Special object" tag should be attached to any ball that is used to activate a switch
+            interactable.OnSwitchActivate();
+        }
     }
 
     private void OnTriggerExit(Collider collider) {
+        Debug.Log(gameObject.name + " trigger was exited.");
         if (collider.gameObject.tag.Equals("Special object"))
             interactable.OnSwitchDeactivate();
     }
