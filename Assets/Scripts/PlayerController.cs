@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Debug Stuff")]
+    public bool visualizeHitbox = false;
+
     [Header("Player Stats")]
     public float moveSpeed = 10f;
     public float jumpStrength = 10f;
     public float punchStrength = 10f;
+
+    [Header("Punch Hitbox Info")]
+    public SphereCollider hitbox;
+    public MeshRenderer hbRend;
+
+    
 
     // Movement Related Stuff.
     private float moveHori;
@@ -41,13 +50,13 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;
         playerCollider = GetComponent<CapsuleCollider>();
+        if (hbRend.enabled == true) { hbRend.enabled = false; }
+        hitbox.enabled = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Debug.Log(anim.GetCurrentAnimatorClipInfo(0)[0].clip.name);
-
         checkGrounded();
         checkFalling();
         Move();
@@ -95,12 +104,19 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && Input.GetAxis("Fire1") == 1)
         {
             isPunching = true;
+            if (visualizeHitbox) { hbRend.enabled = true; }
+            hitbox.enabled = true;
             anim.SetBool("animPunch", true);
         }
-        if (isPunching && anim.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Armature|Punch")
-        {
-            isPunching = false;
-            anim.SetBool("animPunch", false);
+        if (isPunching) {
+            AnimatorClipInfo[] ci_Array = anim.GetCurrentAnimatorClipInfo(0);
+            if(ci_Array.Length != 0 && ci_Array[0].clip.name == "Armature|Punch")
+            {
+                isPunching = false;
+                hbRend.enabled = false;
+                hitbox.enabled = false;
+                anim.SetBool("animPunch", false);
+            }
         }
     }
 
