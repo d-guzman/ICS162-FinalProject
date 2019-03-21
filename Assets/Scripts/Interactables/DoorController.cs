@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour, SwitchInteractable
 {
+
+
+    public Animation LeftDoorOpen;
+    //public Animation RightDoorOpen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +21,13 @@ public class DoorController : MonoBehaviour, SwitchInteractable
         
     }
 
-    public void OnSwitchActivate() {}
+    public void OnSwitchActivate() {
+        Debug.Log("Door has been activated");
+       // LeftDoorOpen.Play();
+    }
+    
 
-    public void OnSwitchDeactivate() {}
+    public void OnSwitchDeactivate() {
+        Debug.Log("Goodbye, door");
+    }
 }
