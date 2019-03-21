@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour {
         int layerMask = 1 << 8;
         layerMask = ~layerMask;
 
-        if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, 10f, layerMask))
+        if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, -CameraDistance, layerMask))
         {
             Vector3 CurrentPosition = currentCamera.localPosition;
             Vector3 NextPosition = new Vector3(0, 0, -hitInfo.distance);
