@@ -71,29 +71,12 @@ public class CameraFollow : MonoBehaviour
        // this.transform.position = player.position + (rotation * offset);
         this.transform.LookAt(player);
 
-        /*
-        Quaternion camTurn = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeed, Vector3.up);
-        Vector3 rotatedOffset = camTurn * offset;
-        Vector3 cameraPosition = player.position + rotatedOffset;
-        this.transform.position = Vector3.Slerp(this.transform.position, cameraPosition, cameraDelay * Time.deltaTime);
-        transform.LookAt(player);
-        */
-    }
-
-    void SetRoation()
-    {
-         yaw += mouseYSpeed * Input.GetAxis("Mouse X");
-        pitch -= mouseXSpeed * Input.GetAxis("Mouse Y");
-        Debug.Log("Pitch is " + pitch);
-        this.transform.eulerAngles = new Vector3(pitch, yaw, 0f); //use the mouse to rotate the camera 
-
     }
 
 
     private void FixedUpdate() //Fixed Update for Physics yup yup
     {
         SetPosition();
-        //SetRoation();
 
     }
 }

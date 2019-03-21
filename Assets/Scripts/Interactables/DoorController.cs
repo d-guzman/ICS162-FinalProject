@@ -6,13 +6,15 @@ public class DoorController : MonoBehaviour, SwitchInteractable
 {
 
 
-    public Animation LeftDoorOpen;
+    public Animator anim;
+
+
     //public Animation RightDoorOpen;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,12 +24,12 @@ public class DoorController : MonoBehaviour, SwitchInteractable
     }
 
     public void OnSwitchActivate() {
-        Debug.Log("Door has been activated");
+        anim.SetBool("Open", true);
        // LeftDoorOpen.Play();
     }
     
 
     public void OnSwitchDeactivate() {
-        Debug.Log("Goodbye, door");
+        anim.SetBool("Open", false);
     }
 }

@@ -307,7 +307,6 @@ GameObject:
   - component: {fileID: 608223642}
   - component: {fileID: 608223641}
   - component: {fileID: 608223640}
-  - component: {fileID: 608223639}
   m_Layer: 0
   m_Name: RightDoor
   m_TagString: Untagged
@@ -323,25 +322,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608223637}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.96, y: -0.16, z: 0}
+  m_LocalPosition: {x: -1.13, y: -0.068, z: 0}
   m_LocalScale: {x: 1.9047245, y: 3.476806, z: 0.404}
   m_Children: []
   m_Father: {fileID: 1851730655}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &608223639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608223637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55841ce3acefe994e8d003f019b62385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LeftDoorOpen: {fileID: 0}
 --- !u!65 &608223640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -623,6 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1232712649}
   - component: {fileID: 1232712650}
+  - component: {fileID: 1232712651}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -638,7 +625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232712648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.014, y: 1.893, z: 4.902}
+  m_LocalPosition: {x: 0.095, y: 1.893, z: 4.902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1534880638}
@@ -658,7 +645,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55841ce3acefe994e8d003f019b62385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftDoorOpen: {fileID: 0}
+  anim: {fileID: 0}
+--- !u!95 &1232712651
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232712648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10582c1a8aa8664428722ebc20684251, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1289415797
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,8 +768,6 @@ GameObject:
   - component: {fileID: 1342721477}
   - component: {fileID: 1342721476}
   - component: {fileID: 1342721475}
-  - component: {fileID: 1342721474}
-  - component: {fileID: 1342721480}
   - component: {fileID: 1342721479}
   m_Layer: 0
   m_Name: LeftDoor
@@ -772,19 +776,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1342721474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342721473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55841ce3acefe994e8d003f019b62385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LeftDoorOpen: {fileID: 0}
 --- !u!65 &1342721475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -851,7 +842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342721473}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.97, y: 0, z: 0.03}
+  m_LocalPosition: {x: 0.88, y: -0.147, z: 0.03}
   m_LocalScale: {x: 1.9047245, y: 3.6166246, z: 0.404}
   m_Children: []
   m_Father: {fileID: 1534880638}
@@ -872,25 +863,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!95 &1342721480
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342721473}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c1df8379d20964045b6283d2f50008cd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1366597469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -906,7 +878,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactableObject
       value: 
-      objectReference: {fileID: 1342721473}
+      objectReference: {fileID: 1232712648}
     - target: {fileID: 1601102770, guid: badd8d9d823733d4f865bec97cf9267f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.446
@@ -978,7 +950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534880637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.93, y: -0.21, z: -0.05}
+  m_LocalPosition: {x: -1.906, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1342721478}
@@ -993,7 +965,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534880637}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c53bd333513eac9499c4d6cc6d869768, type: 2}
   m_CullingMode: 0
@@ -1129,7 +1101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851730654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.92, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 608223638}
@@ -1144,7 +1116,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851730654}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 90f8b4f85512b9249bbd452cd427a6a7, type: 2}
   m_CullingMode: 0
@@ -1679,8 +1651,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096875790}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -7.258, y: 0.214, z: -0.02}
-  m_LocalScale: {x: 0.5350002, y: 3.4310539, z: 6.1526976}
+  m_LocalPosition: {x: -7.2205, y: 0.214, z: -0.02}
+  m_LocalScale: {x: 0.5350002, y: 3.4310539, z: 6.2277603}
   m_Children: []
   m_Father: {fileID: 1080994322}
   m_RootOrder: 3
