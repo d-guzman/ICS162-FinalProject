@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Debug Stuff")]
+    [Tooltip("Want to control when you see certain debug logs? Check this option here.")]
+    public bool enableDebugLog = false;
+    [Tooltip("Want to see the exact hitbox of the player's punch? Check this option here.")]
     public bool visualizeHitbox = false;
 
     [Header("Player Stats")]
@@ -15,8 +18,6 @@ public class PlayerController : MonoBehaviour
     [Header("Punch Hitbox Info")]
     public SphereCollider hitbox;
     public MeshRenderer hbRend;
-
-    
 
     // Movement Related Stuff.
     private float moveHori;
@@ -70,7 +71,13 @@ public class PlayerController : MonoBehaviour
         {
             moveHori = Input.GetAxis("Horizontal");
             moveVert = Input.GetAxis("Vertical");
-            movement = new Vector3(moveHori, 0f, moveVert);
+
+            Vector3 camForward = Camera.main.transform.forward;
+            Vector3 camRight = Camera.main.transform.right;
+            camForward.y = 0f;
+            camRight.y = 0f;
+
+            movement = camForward * moveVert + camRight * moveHori;
 
             if (movement.magnitude > 1f) { movement.Normalize(); }
 
