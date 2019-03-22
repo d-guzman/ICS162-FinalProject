@@ -8,8 +8,13 @@ public class BallSwitch : MonoBehaviour
     public GameObject interactableObject;
     private SwitchInteractable interactable;
 
+    public Material turnedOffMaterial;
+    public Material turnedOnMaterial;
+
     [SerializeField]
     private Collider trigger; // may change later depending on actual model implementation!!!!
+
+    private MeshRenderer renderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +22,9 @@ public class BallSwitch : MonoBehaviour
             trigger = gameObject.GetComponent<Collider>();
         }
         interactable = interactableObject.GetComponent<SwitchInteractable>();
+
+        renderer = gameObject.GetComponent<MeshRenderer>();
+        renderer.material = turnedOffMaterial;
     }
 
     // Update is called once per frame
@@ -30,6 +38,10 @@ public class BallSwitch : MonoBehaviour
         Debug.Log(gameObject.name + " trigger was entered.");
         if (collider.gameObject.tag.Equals("Special object")) {  // NOTE: the "Special object" tag should be attached to any ball that is used to activate a switch
             interactable.OnSwitchActivate();
+            renderer.material = turnedOnMaterial;
+            collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            collider.transform.Translate(transform.position.x - collider.transform.position.x, 0, transform.position.z - collider.transform.position.z, Space.World);
+            // collider.transform.Translate(collider.transform.position.x - transform.position.x, 0, collider.transform.position.z - transform.position.z);
         }
     }
 
@@ -41,7 +53,9 @@ public class BallSwitch : MonoBehaviour
 
     private void OnTriggerExit(Collider collider) {
         Debug.Log(gameObject.name + " trigger was exited.");
-        if (collider.gameObject.tag.Equals("Special object"))
+        if (collider.gameObject.tag.Equals("Special object")) {
             interactable.OnSwitchDeactivate();
+            renderer.material = turnedOffMaterial;
+        }
     }
 }
