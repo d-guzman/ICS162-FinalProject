@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour {
     public Transform camFocus;  // What the camera is looking at. Almost always the player.
     public Transform currentCamera;
     public float CameraDistance = -10f;
+    public bool invertVerticalControls = false;
     private Vector3 CameraPosition;
 
     private float rotateX;   // Numbers that are used to make the Quaternion 
@@ -47,7 +48,10 @@ public class CameraController : MonoBehaviour {
     }
     private void rotateCamera() {
         rotateX += Input.GetAxis("CamHorizontal") * Time.deltaTime;
-        rotateY += Input.GetAxis("CamVertical") * Time.deltaTime;
+        if (invertVerticalControls)
+            rotateY += -1 * Input.GetAxis("CamVertical") * Time.deltaTime;
+        else
+            rotateY += Input.GetAxis("CamVertical") * Time.deltaTime;
         rotateY = Mathf.Clamp(rotateY, -89.5f, 89.5f);
 
         nextRotation = Quaternion.Euler(rotateY, rotateX, 0);

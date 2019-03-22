@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
             {
                 isPunching = false;
                 hbRend.enabled = false;
+                hitbox.isTrigger = true;
                 hitbox.enabled = false;
                 anim.SetBool("animPunch", false);
             }
