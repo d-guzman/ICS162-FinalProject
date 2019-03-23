@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void checkGrounded() {
-        if (Physics.Raycast(playerCollider.bounds.center, -Vector3.up, distToGround + 0.01f))
+        if (Physics.Raycast(playerCollider.bounds.center, -Vector3.up, distToGround + 0.01f) && !isJumping)
         {
             isGrounded = true;
             isJumping = false;

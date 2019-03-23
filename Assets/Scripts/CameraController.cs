@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour {
         if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, -CameraDistance, layerMask))
         {
             Vector3 CurrentPosition = currentCamera.localPosition;
-            Vector3 NextPosition = new Vector3(0, 0, -hitInfo.distance);
+            Vector3 NextPosition = new Vector3(0, 0, -hitInfo.distance+.03f);
             currentCamera.localPosition = Vector3.Lerp(CurrentPosition, NextPosition, 1f);
         }
         else
