@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     private bool isPunching;
     private bool canJump;
 
+    private Vector3 startPosition;
+
     // Misc. Stuff.
     private float distToGround;
     private CapsuleCollider playerCollider;
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
         playerCollider = GetComponent<CapsuleCollider>();
         if (hbRend.enabled == true) { hbRend.enabled = false; }
         hitbox.enabled = false;
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -62,6 +65,7 @@ public class PlayerController : MonoBehaviour
         checkCanJump();
         checkFalling();
         checkGrounded();
+        checkDeath();
 
         Move();
         Jump();
@@ -97,6 +101,15 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
 
             anim.SetFloat("blendSpeed", movement.magnitude);
+        }
+    }
+
+
+    private void checkDeath()
+    {
+        if(transform.position.y < -20f)
+        {
+            transform.position = startPosition;
         }
     }
 
