@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour {
         transform.position = camFocus.position;
     }
     private void rotateCamera() {
-        rotateX += Input.GetAxis("CamHorizontal") * Time.deltaTime;
+        rotateX += Input.GetAxis("CamHorizontal") * Time.deltaTime * 4f;
         if (invertVerticalControls)
             rotateY += -1 * Input.GetAxis("CamVertical") * Time.deltaTime;
         else
