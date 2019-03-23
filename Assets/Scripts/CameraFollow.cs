@@ -14,8 +14,8 @@ public class CameraFollow : MonoBehaviour
 
 
 
-    private const float angleMin = -20f;
-    private const float angleMax = 30f;
+    private const float angleMin = 0f;
+    private const float angleMax = 40f;
 
     private float pitch = 0f;
     private float yaw = 0f;
@@ -64,7 +64,7 @@ public class CameraFollow : MonoBehaviour
     {
 
         //Vector3 dir = new Vector3(0f, 2.5f, -5f);
-        Quaternion rotation = Quaternion.Euler(0f, currentX, 0);
+        Quaternion rotation = Quaternion.Euler(-10f, currentX, 0);
 
         Vector3 cameraPosition = player.position + (rotation * offset);
         this.transform.position = Vector3.Slerp(this.transform.position, cameraPosition, cameraDelay * Time.deltaTime);

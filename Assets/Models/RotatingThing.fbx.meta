@@ -1,14 +1,57 @@
 fileFormatVersion: 2
-guid: 7a2aae92cbaf84345a0f3c6c1f3f2d64
+guid: 6b4feab2389ef5547a462494d35f8392
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: curve1
+    100002: Inner_Sphere
+    100004: Magnet
+    100006: Platform
+    100008: Platform1
+    100010: Platform3
+    100012: //RootNode
+    100014: Side_Sphere
+    100016: Side_Sphere1
+    100018: Side_Sphere2
+    100020: Side_Sphere3
+    100022: SideSphere
+    100024: transform1
+    100026: transform2
+    400000: curve1
+    400002: Inner_Sphere
+    400004: Magnet
+    400006: Platform
+    400008: Platform1
+    400010: Platform3
+    400012: //RootNode
+    400014: Side_Sphere
+    400016: Side_Sphere1
+    400018: Side_Sphere2
+    400020: Side_Sphere3
+    400022: SideSphere
+    400024: transform1
+    400026: transform2
     2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: bar_with_square_stand
+    2300000: Inner_Sphere
+    2300002: Platform
+    2300004: Side_Sphere
+    2300006: Side_Sphere1
+    2300008: Side_Sphere2
+    2300010: Side_Sphere3
+    3300000: Inner_Sphere
+    3300002: Platform
+    3300004: Side_Sphere
+    3300006: Side_Sphere1
+    3300008: Side_Sphere2
+    3300010: Side_Sphere3
+    4300000: Inner_Sphere
+    4300002: Side_Sphere3
+    4300004: Side_Sphere2
+    4300006: Side_Sphere1
+    4300008: Side_Sphere
+    4300010: Platform
+    7400000: Take 001
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -36,11 +79,39 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 150
+    globalScale: 60
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -61,8 +132,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.59999996
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -89,7 +160,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
