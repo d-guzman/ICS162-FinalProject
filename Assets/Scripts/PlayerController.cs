@@ -79,12 +79,14 @@ public class PlayerController : MonoBehaviour
             Vector3 camRight = Camera.main.transform.right;
             camForward.y = 0f;
             camRight.y = 0f;
+            camForward.Normalize();
+            camRight.Normalize();
 
             movement = camForward * moveVert + camRight * moveHori;
+            movement.Normalize();
+            
 
-            if (movement.magnitude > 1f) { movement.Normalize(); }
-
-            if (moveHori != 0f || moveVert != 0f)
+            if (movement.magnitude != 0f)
             {
                 Quaternion rotation = Quaternion.LookRotation(movement);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 10f * Time.deltaTime);
