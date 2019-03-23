@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool isFalling;
     private bool isPunching;
+    private bool canJump;
 
     // Misc. Stuff.
     private float distToGround;
@@ -58,8 +59,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        checkGrounded();
+        checkCanJump();
         checkFalling();
+        checkGrounded();
+
         Move();
         Jump();
         Punch();
@@ -96,7 +99,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Jump() {
-        if (!isJumping && isGrounded && Input.GetAxis("Jump") == 1)
+        if (!isJumping && canJump && isGrounded && !isPunching && Input.GetAxis("Jump") == 1)
         {
             isJumping = true;
             isGrounded = false;
@@ -129,7 +132,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void checkGrounded() {
-        if (Physics.Raycast(playerCollider.bounds.center, -Vector3.up, distToGround + 0.01f) && !isJumping)
+        if (Physics.Raycast(playerCollider.bounds.center, -Vector3.up, distToGround + 0.01f))
         {
             isGrounded = true;
             isJumping = false;
@@ -150,5 +153,11 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("animFalling", true);
             anim.SetBool("animJump", false);
         }
+    }
+
+    private void checkCanJump()
+    {
+        if (Input.GetAxis("Jump") == 1 && isJumping){ canJump = false; }
+        else if (Input.GetAxis("Jump") == 0 && isGrounded) { canJump = true; }
     }
 }
